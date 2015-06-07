@@ -153,13 +153,57 @@ CountryData # R combines the vector in the order they're typed
  $ GNI                          : num  8820 NA 6100 42050 8960 ...
  $ PrimarySchoolEnrollmentMale  : num  NA 78.4 NA NA 85.3 NA 98.9 86.5 99.3 94.8 ...
  $ PrimarySchoolEnrollmentFemale: num  NA 79.4 NA NA 84.1 NA 99.2 88.4 99.7 97 ...
-> write.csv(WHO_Europe,"WHO_Europe.csv")
+ 
+> write.csv(WHO_Europe,"WHO_Europe.csv") # write.csv() to write a dataset to a csv file
+
 > ls() # ls() to list all variables created in current R session
 [1] "AllCountryData" "Country"        "CountryData"   
 [4] "LifeExpectancy" "NewCountryData" "Population"    
 [7] "WHO"            "WHO_Europe"    
 > rm(WHO_Europe) # rm() to remove a large variable from current R session to save memory
-> ls()
+> ls() # verify if WHO_Europe variable is removed
 [1] "AllCountryData" "Country"        "CountryData"   
 [4] "LifeExpectancy" "NewCountryData" "Population"    
 [7] "WHO"
+
+## Data Analysis - Summary Statistics and Scatterplots
+> WHO$Under15 # to access variable Under15 of dataset WHO
+  [1] 47.42 21.33 27.42 15.20 47.58 25.96 24.42 20.34 18.95 14.51 22.25
+ [12] 21.62 20.16 30.57 18.99 15.10 16.88 34.40 42.95 28.53 35.23 16.35
+ [23] 33.75 24.56 25.75 13.53 45.66 44.20 31.23 43.08 16.37 30.17 40.07
+ [34] 48.52 21.38 17.95 28.03 42.17 42.37 30.61 23.94 41.48 14.98 16.58
+ [45] 17.16 14.56 21.98 45.11 17.66 33.72 25.96 30.53 30.29 31.25 30.62
+ [56] 38.95 43.10 15.69 43.29 28.88 16.42 18.26 38.49 45.90 17.62 13.17
+ [67] 38.59 14.60 26.96 40.80 42.46 41.55 36.77 35.35 35.72 14.62 20.71
+ [78] 29.43 29.27 23.68 40.51 21.54 27.53 14.04 27.78 13.12 34.13 25.46
+ [89] 42.37 30.10 24.90 30.21 35.61 14.57 21.64 36.75 43.06 29.45 15.13
+[100] 17.46 42.72 45.44 26.65 29.03 47.14 14.98 30.10 40.22 20.17 29.02
+[111] 35.81 18.26 27.05 19.01 27.85 45.38 25.28 36.59 30.10 35.58 17.21
+[122] 20.26 33.37 49.99 44.23 30.61 18.64 24.19 34.31 30.10 28.65 38.37
+[133] 32.78 29.18 34.53 14.91 14.92 13.28 15.25 16.52 15.05 15.45 43.56
+[144] 25.96 24.31 25.70 37.88 14.04 41.60 29.69 43.54 16.45 21.95 41.74
+[155] 16.48 15.00 14.16 40.37 47.35 29.53 42.28 15.20 25.15 41.48 27.83
+[166] 38.05 16.71 14.79 35.35 35.75 18.47 16.89 46.33 41.89 37.33 20.73
+[177] 23.22 26.00 28.65 30.61 48.54 14.18 14.41 17.54 44.85 19.63 22.05
+[188] 28.90 37.37 28.84 22.87 40.72 46.73 40.24
+> mean(WHO$Under15) # to find mean
+[1] 28.73242
+> sd(WHO$Under15) # to find standard deviation
+[1] 10.53457
+> summary(WHO$Under15) # to find summary of variable Under15
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  13.12   18.72   28.65   28.73   37.75   49.99 
+# 18.72 => value for which 25% of data is below itself
+# 37.75 => value for which 75% of data is beloe itself
+
+> which.min(WHO$Under15) # returns rownum for data observation which has minimum value of Under15
+[1] 86
+> WHO$Country[86] # to find out country at rownum 86
+[1] Japan
+194 Levels: Afghanistan Albania Algeria Andorra ... Zimbabwe
+
+> which.max(WHO$Under15) # returns rownum for data observation which has maximum value of Under15
+[1] 124
+> WHO$Country[124] # to find out country at rownum 124
+[1] Niger
+194 Levels: Afghanistan Albania Algeria Andorra ... Zimbabwe

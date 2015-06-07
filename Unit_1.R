@@ -55,4 +55,22 @@ CountryData # R combines the vector in the order they're typed
 4 Switzerland             83       7997
 5         USA             79     318000
 
-# Rbind combines data frame by stackin the rows
+# Rbind combines data frame by stacking the rows, use Rbind to add new observations to dataframe
+> Country = c("Australia","Greece")
+> LifeExpectancy = c(82,81)
+> Population = c(23050,11125)
+> NewCountryData = data.frame(Country,LifeExpectancy,Population)
+> NewCountryData
+    Country LifeExpectancy Population
+1 Australia             82      23050
+2    Greece             81      11125
+> AllCountryData = rbind(CountryData,NewCountryData) # rbind()
+> AllCountryData
+      Country LifeExpectancy Population
+1      Brazil             74     199000
+2       China             76    1390000
+3       India             65    1240000
+4 Switzerland             83       7997
+5         USA             79     318000
+6   Australia             82      23050
+7      Greece             81      11125

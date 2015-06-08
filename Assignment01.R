@@ -16,6 +16,15 @@ table(mvt$Arrest,mvt$Month)
 > mvt$Date = DateConvert
 > hist(mvt$Date, breaks=100)
 
+# 3.2
+> mvt = read.csv("mvtWeek1.csv")
+> DateConvert = as.Date(strptime(mvt$Date, "%m/%d/%y %H:%M"))
+> mvt$Date = DateConvert
+> boxplot(mvt$Date ~ mvt$Arrest)
+
+# 3.3 
+table(mvt$Year, mvt$Arrest) # 2152/(2152+18517) = 0.1041173
+
 ## STOCK DYNAMICS
 
 # 1.1

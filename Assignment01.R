@@ -24,6 +24,10 @@ table(mvt$Arrest,mvt$Month)
 
 # 3.3 
 table(mvt$Year, mvt$Arrest) # 2152/(2152+18517) = 0.1041173
+# Similarly for 3.4 and 3.5
+
+# 4.1
+sort(table(mvt$LocationDescription)) # pick the last five
 
 ## STOCK DYNAMICS
 

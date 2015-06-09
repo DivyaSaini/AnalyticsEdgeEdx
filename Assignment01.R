@@ -29,6 +29,21 @@ table(mvt$Year, mvt$Arrest) # 2152/(2152+18517) = 0.1041173
 # 4.1
 sort(table(mvt$LocationDescription)) # pick the last five
 
+# 4.2
+> Top5 = subset(mvt,LocationDescription == "STREET" | LocationDescription == "GAS STATION" | LocationDescription == "DRIVEWAY - RESIDENTIAL" | LocationDescription == "ALLEY" | LocationDescription == "PARKING LOT/GARAGE(NON.RESID.)")
+> str(Top5) # 177510 obs. of  11 variables:
+
+# 4.3
+> Top5$LocationDescription = factor(Top5$LocationDescription)
+> str(Top5)
+> table(Top5$LocationDescription, Top5$Arrest) # STREET - 11595
+
+# 4.4, 4.5
+> DateConvertTop5 = as.Date(strptime(Top5$Date, "%m/%d/%y %H:%M"))
+> Top5$Weekday = weekdays(DateConvertTop5)
+> Top5$Date = DateConvertTop5
+> table(Top5$Weekday, Top5$LocationDescription)
+
 ## STOCK DYNAMICS
 
 # 1.1

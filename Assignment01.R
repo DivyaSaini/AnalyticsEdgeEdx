@@ -55,7 +55,7 @@ sort(table(mvt$LocationDescription)) # pick the last five
 > Boeing = read.csv("BoeingStock.csv")
 > str(IBM) # 480 obs. of  2 variables
 
-# 1.2 , 1.3
+# 1.2 , 1.3, 1.4, 1.5, 1.6, 1.7
 IBM$Date = as.Date(IBM$Date, "%m/%d/%y")
 GE$Date = as.Date(GE$Date, "%m/%d/%y")
 CocaCola$Date = as.Date(CocaCola$Date, "%m/%d/%y")
@@ -66,3 +66,14 @@ Boeing$Date = as.Date(Boeing$Date, "%m/%d/%y")
 > summary(CocaCola)
 > summary(ProcterGamble)
 > summary(Boeing)
+
+# 1.8
+sd(ProcterGamble$StockPrice) # 18.19414
+
+# 2.1 
+plot(CocaCola$Date, CocaCola$StockPrice,type = "l")
+
+# 2.2, 2.3
+plot(CocaCola$Date, CocaCola$StockPrice,type = "l", col="RED")
+lines(ProcterGamble$Date, ProcterGamble$StockPrice)
+abline(v=as.Date(c("2000-03-01")), lwd=2) # P&C

@@ -124,3 +124,32 @@ table(CPS$Race, CPS$Hispanic)
 
 # 2.1
 summary(CPS) # Verify manually from here
+
+# 2.2
+table(CPS$Region, is.na(CPS$Married))
+table(CPS$Sex, is.na(CPS$Married))
+table(CPS$Age, is.na(CPS$Married))
+table(CPS$Citizenship, is.na(CPS$Married))
+
+# 2.3
+table(CPS$State, is.na(CPS$MetroAreaCode))
+
+# 2.4
+table(CPS$Region, is.na(CPS$MetroAreaCode)) # and compute proportion manually
+
+# 2.5
+sort(tapply(is.na(CPS$MetroAreaCode),CPS$State,mean))
+
+# 3.1
+MetroAreaMap = read.csv("MetroAreaCodes.csv")
+CountryMap = read.csv("CountryCodes.csv")
+str(MetroAreaMap) # 271
+str(CountryMap) # 149
+
+# 3.2
+CPS = merge(CPS, MetroAreaMap, by.x="MetroAreaCode", by.y="Code", all.x=TRUE)
+str(CPS)
+summary(CPS)
+
+
+

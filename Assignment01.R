@@ -47,13 +47,13 @@ sort(table(mvt$LocationDescription)) # pick the last five
 ## STOCK DYNAMICS
 
 # 1.1
-> setwd("~/EdxWD/data")
-> IBM = read.csv("IBMStock.csv")
-> GE = read.csv("GEStock.csv")
-> CocaCola = read.csv("CocaColaStock.csv")
-> ProcterGamble = read.csv("ProcterGambleStock.csv")
-> Boeing = read.csv("BoeingStock.csv")
-> str(IBM) # 480 obs. of  2 variables
+ setwd("~/EdxWD/data")
+ IBM = read.csv("IBMStock.csv")
+ GE = read.csv("GEStock.csv")
+ CocaCola = read.csv("CocaColaStock.csv")
+ ProcterGamble = read.csv("ProcterGambleStock.csv")
+ Boeing = read.csv("BoeingStock.csv")
+ str(IBM) # 480 obs. of  2 variables
 
 # 1.2 , 1.3, 1.4, 1.5, 1.6, 1.7
 IBM$Date = as.Date(IBM$Date, "%m/%d/%y")
@@ -77,3 +77,28 @@ plot(CocaCola$Date, CocaCola$StockPrice,type = "l")
 plot(CocaCola$Date, CocaCola$StockPrice,type = "l", col="RED")
 lines(ProcterGamble$Date, ProcterGamble$StockPrice)
 abline(v=as.Date(c("2000-03-01")), lwd=2) # P&C
+
+# 3.1, 3.2, 3.4
+plot(CocaCola$Date[301:432], CocaCola$StockPrice[301:432], type="l", col="red", ylim=c(0,210))
+lines(ProcterGamble$Date, ProcterGamble$StockPrice, col="purple")
+lines(GE$Date, GE$StockPrice, col="green")
+lines(IBM$Date, IBM$StockPrice, col="yellow")
+lines(Boeing$Date, Boeing$StockPrice, col="black")
+
+# 3.3
+abline(v=as.Date(c("1997-09-01")), lwd=2)
+abline(v=as.Date(c("1997-11-01")), lwd=2)
+
+# 4.1
+tapply(IBM$StockPrice, months(IBM$Date), mean)
+mean(IBM$StockPrice)
+
+# 4.2
+tapply(CocaCola$StockPrice, months(CocaCola$Date), mean)
+> mean(CocaCola$StockPrice)
+tapply(GE$StockPrice, months(GE$Date), mean)
+mean(GE$StockPrice)
+
+# 4.3
+tapply(Boeing$StockPrice, months(Boeing$Date), mean)
+tapply(ProcterGamble$StockPrice, months(ProcterGamble$Date), mean)

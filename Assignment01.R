@@ -102,3 +102,25 @@ mean(GE$StockPrice)
 # 4.3
 tapply(Boeing$StockPrice, months(Boeing$Date), mean)
 tapply(ProcterGamble$StockPrice, months(ProcterGamble$Date), mean)
+
+## DEMOGRAPHICS AND EMPLOYMENT IN THE UNITED STATES
+
+# 1.1
+CPS = read.csv("CPSData.csv")
+str(CPS) # 131302
+summary(CPS) 
+
+# 1.2
+table(CPS$Industry) 
+
+# 1.3
+sort(table(CPS$State))
+
+# 1.4
+table(CPS$Citizenship) # (116639+7073)/131302 = 0.942194
+
+# 1.5
+table(CPS$Race, CPS$Hispanic)
+
+# 2.1
+summary(CPS) # Verify manually from here

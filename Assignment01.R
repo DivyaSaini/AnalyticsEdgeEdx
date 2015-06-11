@@ -151,5 +151,9 @@ CPS = merge(CPS, MetroAreaMap, by.x="MetroAreaCode", by.y="Code", all.x=TRUE)
 str(CPS)
 summary(CPS)
 
+# 3.3
+table(CPS$MetroArea)
 
+# 3.4
+sort(tapply(CPS$Hispanic, CPS$MetroArea, mean))
 

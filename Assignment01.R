@@ -152,6 +152,7 @@ str(CPS)
 summary(CPS)
 
 # 3.3
+(I got it wrong earlier, coz I was trying to read it from summary(CPS) which listed only limited stats for CPS$MetroArea)
 table(CPS$MetroArea)
 
 # 3.4

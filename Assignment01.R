@@ -158,3 +158,24 @@ table(CPS$MetroArea)
 # 3.4
 sort(tapply(CPS$Hispanic, CPS$MetroArea, mean))
 
+# 3.5
+a <- table(CPS$MetroArea,CPS$Race)
+prob.table(a) # count all with value >=0.2 
+
+# 4.1
+CountryCodes = read.csv("CountryCodes.csv")
+CPS = merge(CPS, CountryCodes, by.x="CountryOfBirthCode", by.y="Code", all.x=TRUE)
+
+# 4.2
+sort(table(CPS$Country))
+
+# 4.3
+CPS2 = subset(CPS, CPS$MetroArea=="New York-Northern New Jersey-Long Island, NY-NJ-PA" & CPS$Country !="NA")
+table(CPS2$Country=="United States") # 1666/5404
+
+# 4.4
+CPS3 = subset(CPS, (CPS$MetroArea=="Boston-Cambridge-Quincy, MA-NH" | CPS$MetroArea=="Minneapolis-St Paul-Bloomington, MN-WI" | CPS$MetroArea=="New York-Northern New Jersey-Long Island, NY-NJ-PA" | CPS$MetroArea=="Washington-Arlington-Alexandria, DC-VA-MD-WV") & (CPS$Country=="India" | CPS$Country=="Brazil" | CPS$Country=="Somalia"))
+str(CPS3) # 231*16
+CPS3$Country=factor(CPS3$Country)
+CPS3$MetroArea=factor(CPS3$MetroArea)
+table(CPS3$MetroArea, CPS3$Country)

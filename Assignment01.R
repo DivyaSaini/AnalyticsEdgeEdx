@@ -179,3 +179,26 @@ str(CPS3) # 231*16
 CPS3$Country=factor(CPS3$Country)
 CPS3$MetroArea=factor(CPS3$MetroArea)
 table(CPS3$MetroArea, CPS3$Country)
+
+## INTERNET PRIVACY POLL
+
+# 1.1
+poll <- read.csv("AnonymityPoll.csv")
+str(poll)
+
+# 1.2
+table(poll$Smartphone)
+summary(poll)
+
+# 1.3
+table(poll$State, poll$Region)
+
+# 2.1
+table(poll$Internet.Use, poll$Smartphone)
+
+# 2.2
+summary(poll)
+
+# 2.3
+limited = subset(poll, Internet.Use == 1 | Smartphone == 1)
+

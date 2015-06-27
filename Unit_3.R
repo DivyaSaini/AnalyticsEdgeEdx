@@ -15,3 +15,6 @@
 # AIC value - tells quality of the model
 
 # predict() with argument type="response" gives the probablities
+
+# Specificity increases as we increase the threshold
+# Sensitivity decreases as we increase the threshold

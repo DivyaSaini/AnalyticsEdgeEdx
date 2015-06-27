@@ -18,3 +18,6 @@
 
 # Specificity increases as we increase the threshold
 # Sensitivity decreases as we increase the threshold
+
+# Specificity = True negatives / All negatives
+# Sensitivity = True postives  / All positives

@@ -6,3 +6,5 @@
 # Logistic response function - P(y = 1) = 1/(1 + e^(-(Bo + B1X1 + B2X2 + .... + BkXk))
 
 # Logit = log(Odds) = Bo + B1X1 + B2X2 + .... + BkXk
+
+# caTools package - sample.split() to split data set into training and testing set in a balanced way

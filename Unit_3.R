@@ -8,3 +8,10 @@
 # Logit = log(Odds) = Bo + B1X1 + B2X2 + .... + BkXk
 
 # caTools package - sample.split() to split data set into training and testing set in a balanced way
+
+# nrow() - to count number of rows
+
+# glm() - to build a logistic regression model using generalized linear model function with family=binomial argument
+# AIC value - tells quality of the model
+
+# predict() with argument type="response" gives the probablities

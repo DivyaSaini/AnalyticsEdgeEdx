@@ -21,3 +21,7 @@
 
 # Specificity = True negatives / All negatives
 # Sensitivity = True postives  / All positives
+
+# ROCR package to make ROC curve
+# prediction()
+# performance()

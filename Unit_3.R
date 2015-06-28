@@ -22,7 +22,7 @@
 # Specificity = True negatives / All negatives = TN / (TN + FP)
 # Sensitivity = True postives  / All positives = TP / (TP + FN)
 
-# ROCR package to make ROC curve
+# ROCR package to make ROC (Receiver Operator Characteristic) curve
 # prediction()
 # performance()
 
@@ -42,6 +42,6 @@
 QualityLog = glm(PoorCare ~ OfficeVisits + Narcotics, data=qualityTrain, family=binomial)
 predictTest = predict(QualityLog, type="response", newdata=qualityTest)
 
-# You can compute the test set AUC by running the following two commands in R:
+# You can compute the test set AUC (Area Under Curve) by running the following two commands in R:
 ROCRpredTest = prediction(predictTest, qualityTest$PoorCare)
 auc = as.numeric(performance(ROCRpredTest, "auc")@y.values)

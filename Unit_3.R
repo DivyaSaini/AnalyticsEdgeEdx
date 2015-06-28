@@ -29,5 +29,19 @@
 # Overall Accuracy = (TN+TP)/N
 # Overall Error Rate = (FP+FN)/N
 
-# False Negative Error Rate = FN / (TP + FN)
-# False Positive Error Rate = FP / (TN + FP)
+# False Negative Error Rate = FN / (TP + FN) = 1 - Sensitivity
+# False Positive Error Rate = FP / (TN + FP) = 1 - Specificity
+
+# The AUC of a model has the following nice interpretation: 
+# given a random patient from the dataset who actually received poor care, 
+# and a random patient from the dataset who actually received good care, 
+# the AUC is the perecentage of time that our model will classify which is which correctly.
+
+
+# Compute the test set predictions in R by running the command:
+QualityLog = glm(PoorCare ~ OfficeVisits + Narcotics, data=qualityTrain, family=binomial)
+predictTest = predict(QualityLog, type="response", newdata=qualityTest)
+
+# You can compute the test set AUC by running the following two commands in R:
+ROCRpredTest = prediction(predictTest, qualityTest$PoorCare)
+auc = as.numeric(performance(ROCRpredTest, "auc")@y.values)

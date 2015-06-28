@@ -19,9 +19,15 @@
 # Specificity increases as we increase the threshold
 # Sensitivity decreases as we increase the threshold
 
-# Specificity = True negatives / All negatives
-# Sensitivity = True postives  / All positives
+# Specificity = True negatives / All negatives = TN / (TN + FP)
+# Sensitivity = True postives  / All positives = TP / (TP + FN)
 
 # ROCR package to make ROC curve
 # prediction()
 # performance()
+
+# Overall Accuracy = (TN+TP)/N
+# Overall Error Rate = (FP+FN)/N
+
+# False Negative Error Rate = FN / (TP + FN)
+# False Positive Error Rate = FP / (TN + FP)

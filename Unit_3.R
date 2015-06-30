@@ -45,3 +45,9 @@ predictTest = predict(QualityLog, type="response", newdata=qualityTest)
 # You can compute the test set AUC (Area Under Curve) by running the following two commands in R:
 ROCRpredTest = prediction(predictTest, qualityTest$PoorCare)
 auc = as.numeric(performance(ROCRpredTest, "auc")@y.values)
+
+# Unordered factor variables
+# Factor variables are variables that take on a discrete set of values, 
+# like the "Region" variable in the WHO dataset from the second lecture of Unit 1. 
+# This is an unordered factor because there isn't any natural ordering between the levels. 
+# An ordered factor has a natural ordering between the levels (an example would be the classifications "large," "medium," and "small").

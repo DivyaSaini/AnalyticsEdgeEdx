@@ -56,3 +56,25 @@ auc = as.numeric(performance(ROCRpredTest, "auc")@y.values)
 parole$state = as.factor(parole$state)
 
 # Now output of summary(parole$state) = table(parole$state) rather than calculating mean, median etc
+
+# If you set a random seed, split, set the seed again to the same value, and then split again,
+# you will get the same split. However, if you set the seed and then split twice, you will get different splits. 
+# If you set the seed to different values, you will get different splits.
+
+# You can also verify this by running the specified code in R. 
+# If you have training sets train1 and train2, the function sum(train1 != train2) 
+# will count the number of values in those two data frames that are different.
+
+# It would be time-consuming to type all the variables, 
+# but R provides the shorthand notation "readingScore ~ ." to mean "predict readingScore 
+# using all the other variables in the data frame." 
+# The period is used to replace listing out all of the independent variables. 
+# As an example, if your dependent variable is called "Y",
+# your independent variables are called "X1", "X2", and "X3", 
+# and your training data set is called "Train", instead of the regular notation:
+
+LinReg = lm(Y ~ X1 + X2 + X3, data = Train)
+
+# You would use the following command to build your model:
+
+LinReg = lm(Y ~ ., data = Train)

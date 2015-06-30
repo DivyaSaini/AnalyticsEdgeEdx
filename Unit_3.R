@@ -80,3 +80,8 @@ LinReg = lm(Y ~ X1 + X2 + X3, data = Train)
 LinReg = lm(Y ~ ., data = Train)
 
 # same is applicable for glm() to use all variables in the model
+
+1) If we have a coefficient c for a variable, then that means the log odds (or Logit) are increased by c for a unit increase in the variable.
+
+2) If we have a coefficient c for a variable, then that means the odds are multiplied by e^c for a unit increase in the variable.
+-1.7006288

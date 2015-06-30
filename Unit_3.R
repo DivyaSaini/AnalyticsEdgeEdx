@@ -78,3 +78,5 @@ LinReg = lm(Y ~ X1 + X2 + X3, data = Train)
 # You would use the following command to build your model:
 
 LinReg = lm(Y ~ ., data = Train)
+
+# same is applicable for glm() to use all variables in the model

@@ -51,3 +51,8 @@ auc = as.numeric(performance(ROCRpredTest, "auc")@y.values)
 # like the "Region" variable in the WHO dataset from the second lecture of Unit 1. 
 # This is an unordered factor because there isn't any natural ordering between the levels. 
 # An ordered factor has a natural ordering between the levels (an example would be the classifications "large," "medium," and "small").
+
+# To convert unordered factors into factors
+parole$state = as.factor(parole$state)
+
+# Now output of summary(parole$state) = table(parole$state) rather than calculating mean, median etc

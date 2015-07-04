@@ -62,6 +62,9 @@ pred = prediction(PredictROC[,2], Test$Reverse)
 perf = performance(pred, "tpr", "fpr")
 plot(perf)
 
+# Compute the AUC of the CART model
+as.numeric(performance(pred, "auc")@y.values)
+
 
 
 # VIDEO 5 - Random Forests

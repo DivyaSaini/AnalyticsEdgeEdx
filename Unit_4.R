@@ -2,6 +2,7 @@
 
 
 # Classification and Regression Trees (CART)
+# A CART tree is a series of decision rules which can easily be explained.
 # A yes response is always to the left and a no response is always to the right.
 # There are different ways to control how many splits are generated.
 # One way is by setting a lower bound for the number of data points in each subset.
@@ -33,13 +34,28 @@ library(rpart.plot)
 
 # CART model
 StevensTree = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train, method="class", minbucket=25)
-
-prp(StevensTree)
+# method = "class" is used since we are building classification tree and not regression tree
+# minbucket = 25 is used so that it doesn't overfit to our training set
+prp(StevensTree) # plots the tree
 
 # Make predictions
-PredictCART = predict(StevensTree, newdata = Test, type = "class")
+PredictCART = predict(StevensTree, newdata = Test, type = "class") # type="class" coz we want the majority class predictions.
 table(Test$Reverse, PredictCART)
-(41+71)/(41+36+22+71)
+PredictCART
+  0    1
+0 41   36
+1 22   71
+(41+71)/(41+36+22+71) # calculate accuracy - 0.6588
+
+If you were to build a logistic regression model,
+you would get an accuracy of 0.665
+and a baseline model that always predicts
+Reverse, the most common outcome,
+has an accuracy of 0.547.
+So our CART model significantly beats the baseline
+and is competitive with logistic regression.
+It's also much more interpretable
+than a logistic regression model would be.
 
 # ROC curve
 library(ROCR)

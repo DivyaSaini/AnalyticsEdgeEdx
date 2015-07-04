@@ -47,15 +47,10 @@ PredictCART
 1 22   71
 (41+71)/(41+36+22+71) # calculate accuracy - 0.6588
 
-If you were to build a logistic regression model,
-you would get an accuracy of 0.665
-and a baseline model that always predicts
-Reverse, the most common outcome,
-has an accuracy of 0.547.
-So our CART model significantly beats the baseline
-and is competitive with logistic regression.
-It's also much more interpretable
-than a logistic regression model would be.
+# If you were to build a logistic regression model, you would get an accuracy of 0.665
+# and a baseline model that always predicts Reverse, the most common outcome, has an accuracy of 0.547.
+# So our CART model significantly beats the baseline and is competitive with logistic regression.
+# It's also much more interpretable than a logistic regression model would be.
 
 # ROC curve
 library(ROCR)

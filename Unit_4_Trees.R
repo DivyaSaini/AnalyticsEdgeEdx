@@ -41,6 +41,8 @@ prp(StevensTree) # plots the tree
 
 # Make predictions
 PredictCART = predict(StevensTree, newdata = Test, type = "class") # type="class" coz we want the majority class predictions.
+# Remember that if you add the argument type="class" when making predictions, 
+# the output of predict will automatically use a threshold of 0.5.
 table(Test$Reverse, PredictCART)
 PredictCART
   0    1

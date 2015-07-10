@@ -158,3 +158,10 @@ table(testSparse$Negative, predictRF)
 # Accuracy:
 (293+21)/(293+7+34+21)
 
+## Extra Notes
+
+# The grepl function returns TRUE if a string is found in another string, e.g.
+
+grepl("cat","dogs and cats",fixed=TRUE) # TRUE
+
+grepl("cat","dogs and rats",fixed=TRUE) # FALSE

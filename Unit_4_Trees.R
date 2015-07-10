@@ -33,7 +33,8 @@ install.packages("rpart.plot")
 library(rpart.plot)
 
 # CART model
-StevensTree = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train, method="class", minbucket=25)
+StevensTree = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train, 
+method="class", minbucket=25)
 # method = "class" is used since we are building classification tree and not regression tree
 # minbucket = 25 is used so that it doesn't overfit to our training set
 prp(StevensTree) # plots the tree

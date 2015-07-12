@@ -165,3 +165,6 @@ table(testSparse$Negative, predictRF)
 grepl("cat","dogs and cats",fixed=TRUE) # TRUE
 
 grepl("cat","dogs and rats",fixed=TRUE) # FALSE
+
+# The nchar() function counts the number of characters in a piece of text.
+nchar(trials$abstract)

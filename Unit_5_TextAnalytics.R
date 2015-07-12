@@ -172,3 +172,5 @@ grepl("cat","dogs and rats",fixed=TRUE) # FALSE
 
 # The nchar() function counts the number of characters in a piece of text.
 nchar(trials$abstract)
+
+# The baseline model predicts the most frequent outcome in the training set for all observations.

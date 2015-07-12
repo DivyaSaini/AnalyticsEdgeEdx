@@ -87,7 +87,11 @@ inspect(frequencies[1000:1005,505:515])
 findFreqTerms(frequencies, lowfreq=20)
 
 # Remove sparse terms
-
+# The sparsity threshold works as follows.
+# If we say 0.98, this means to only keep terms that appear in 2% or more of the tweets.
+# If we say 0.99, that means to only keep terms that appear in 1% or more of the tweets.
+# If we say 0.995, that means to only keep terms that appear in 0.5% or more of the tweets,
+# about six or more tweets.
 sparse = removeSparseTerms(frequencies, 0.995)
 sparse
 

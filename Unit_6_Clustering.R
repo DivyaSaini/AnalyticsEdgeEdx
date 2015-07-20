@@ -170,3 +170,8 @@ dim(tumorClusters) = c(nrow(tumorMatrix), ncol(tumorMatrix))
 
 image(tumorClusters, axes = FALSE, col=rainbow(k))
 
+## ASSIGNMENT NOTES
+
+# Use the table function to compare the cluster assignment of hierarchical clustering 
+# to the cluster assignment of k-means clustering
+table(clusterGroups, KMC$cluster)
